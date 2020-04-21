@@ -12,12 +12,12 @@ class OrganizationController extends Controller
     {
         $organization = Organization::all();
 
-        return view('list', compact('organization'));
+        return view('organization.index', compact('organization'));
     }
 
     public function create()
     {
-        return view('form');
+        return view('organization.create');
     }
 
     public function store(Request $request)

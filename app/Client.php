@@ -4,13 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Organization extends Model
+class Client extends Model
 {
     //
     protected $guarded = [];
 
-    public function clients()
+    public function organization()
     {
-        return $this->hasMany('App\Client');
+        return $this->belongsTo('App\Client');
     }
 }

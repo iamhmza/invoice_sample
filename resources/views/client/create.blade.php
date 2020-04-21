@@ -3,11 +3,6 @@
 @section('content')
 
 
-
-
-
-
-
 @if (session('success'))
 <div style="padding: 2rem; color:green; background-color:lightgreen">
   {{ session('success') }}
@@ -27,13 +22,25 @@
 <section class="section">
 
   <h3 class="head">
-    Create invoice
+    Add new client
   </h3>
 
   <div class="body">
 
-    <form method="POST" action="{{ route('organization.store')}}">
+    <form method="POST" action="{{ route('client.store')}}">
       @csrf
+      <div class="row">
+        <div class="twelve columns">
+          <label for="organization">Organization</label>
+          <select class="u-full-width" id="organization" name="organization_id">
+            @foreach ($organizations as $org)
+
+            <option value="{{$org->id}}">{{$org->company_name}}</option>
+
+            @endforeach
+          </select>
+        </div>
+      </div>
       <div class="row">
         <div class="six columns">
           <label for="company">Company Name</label>

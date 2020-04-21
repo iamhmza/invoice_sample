@@ -2,7 +2,14 @@
 
 @section('content')
 
-<h3>Invoices</h3>
+<h3>Organizations</h3>
+
+@if (session('message'))
+<div style="padding: 2rem;">
+  {{ session('message') }}
+</div>
+@endif
+
 
 <table class="u-full-width">
   <thead>
@@ -20,11 +27,14 @@
       <td>{{$organization->name}}</td>
       <td>{{$organization->address}}</td>
       <td>
-        <a class="button button-primary" href="{{action('OrganizationController@downloadPDF', $organization->id)}}">
-          download PDf
+        {{-- <a class="button button-primary" href="{{action('OrganizationController@downloadPDF', $organization->id)}}">
+        download PDf
         </a>
         <a class="button" href="{{action('OrganizationController@preview', $organization->id)}}">
           preview
+        </a> --}}
+        <a class="button" href="{{action('ClientController@index', $organization->id)}}">
+          Clients
         </a>
       </td>
     </tr>
