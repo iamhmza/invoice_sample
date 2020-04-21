@@ -9,19 +9,23 @@
     <tr>
       <th>Company</th>
       <th>Name</th>
-      <th>Invioce ID</th>
+      <th>address</th>
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
-    @foreach($invoices as $invoice)
+    @foreach($organization as $organization)
     <tr>
-      <td>{{$invoice->company_name}}</td>
-      <td>{{$invoice->name}}</td>
-      <td>{{$invoice->invoice_id}}</td>
+      <td>{{$organization->company_name}}</td>
+      <td>{{$organization->name}}</td>
+      <td>{{$organization->address}}</td>
       <td>
-        <a class="button button-primary" href="{{action('InvoiceController@downloadPDF', $invoice->id)}}">Download
-          PDF</a>
+        <a class="button button-primary" href="{{action('OrganizationController@downloadPDF', $organization->id)}}">
+          download PDf
+        </a>
+        <a class="button" href="{{action('OrganizationController@preview', $organization->id)}}">
+          preview
+        </a>
       </td>
     </tr>
     @endforeach
